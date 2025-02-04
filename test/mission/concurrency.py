@@ -33,9 +33,25 @@ class WordSplitGenerator:
             yield word
 
 
+def generator_example():
+    print("Start")
+    yield "A Point"
+    print("Continue")
+    yield "B Point"
+    print("End")
+
+temp = iter(generator_example())
+
 if __name__ == "__main__":
     text = "Do today what you could do tomorrow"
     splitter = WordSplitter(text)
 
     gen = WordSplitGenerator(text)
     print("Generator:", [word for word in gen])
+
+    for word in temp:
+        print(word)
+
+    # print(next(temp))
+    # print(next(temp))
+    # print(next(temp))
